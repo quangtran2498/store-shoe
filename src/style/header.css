@@ -1,0 +1,86 @@
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.introduce:hover .header-item-link {
+  display: block;
+}
+
+.header-item-link {
+  animation: header-item ease 0.7s;
+}
+@keyframes header-item {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.introduce::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  top: 30px;
+  /* background-color: red; */
+}
+.cooperate:hover .cooperate-children {
+  display: block;
+}
+.cooperate::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  top: 30px;
+  /* background-color: red; */
+}
+.login:hover .login-children {
+  display: block;
+}
+.login::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  top: 30px;
+  /* background-color: red; */
+}
+.header-item:hover {
+  background-color: #6d6d6d;
+}
+.male::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  top: 20px;
+  /* background-color: red; */
+  left: 0;
+  z-index: 10;
+}
+.female::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  top: 30px;
+  /* background-color: red; */
+  left: 0;
+  z-index: 10;
+}
+.children::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  top: 30px;
+  /* background-color: red; */
+  left: 0;
+  z-index: 10;
+}

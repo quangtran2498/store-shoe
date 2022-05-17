@@ -1,0 +1,9 @@
+.brand-item-footer:hover .icon-brand-footer {
+  transform: scale(1.1);
+}
+.brand-item-footer:hover {
+  background-color: tomato;
+}
+.icon-brand-footer {
+  transition: all 0.5;
+}

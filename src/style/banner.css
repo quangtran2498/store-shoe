@@ -1,0 +1,16 @@
+.banner {
+  background: url(../assets/img/benner.jpeg) center no-repeat;
+  background-size: cover;
+  width: 90vw;
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+.BannerShoeFballChildren {
+  background: url(../assets/img/banner_shoefball-children.jpg) center no-repeat;
+  background-size: cover;
+  width: 90vw;
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 80px;
+}

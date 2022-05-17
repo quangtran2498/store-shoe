@@ -1,0 +1,47 @@
+.shoe-fb-right-item {
+  background: url(../assets/img/shoe-football/benner-shoe-fball.jpg) center
+    center no-repeat;
+  background-size: cover;
+  width: 342px !important;
+  height: 690px;
+}
+.shoe-fashion-right-item {
+  background: url(../assets/img/shoe-football/mẫu-nam-2.jpg) center center
+    no-repeat;
+  background-size: cover;
+  width: 342px !important;
+  height: 690px;
+}
+.shoe-female-right-item {
+  background: url(../assets/img/shoe-female/benner.jpg) center center no-repeat;
+  background-size: cover;
+  width: 342px !important;
+  height: 690px;
+}
+.shoe-children-right-item {
+  background: url(../assets/img/children/benner.jpg) center center no-repeat;
+  background-size: cover;
+  width: 342px !important;
+  height: 690px;
+}
+.featured-product-item:hover .img-product {
+  transform: scale(1.1);
+}
+.featured-product-item:hover .featured-product-item-heading {
+  color: #bc412c;
+}
+.img-product {
+  transition: all 0.5s;
+}
+.shoe-fb-item:hover .shoe-fb-item-heading {
+  color: #bc412c;
+}
+.shoe-fb-item:hover .cart-shoe-fball {
+  color: #bc412c;
+}
+.img-shoefball {
+  transition: all 0.5s;
+}
+.shoe-fb-item:hover .img-shoefball {
+  transform: scale(1.1);
+}
