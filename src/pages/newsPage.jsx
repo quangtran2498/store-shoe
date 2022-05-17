@@ -88,15 +88,9 @@ const NewsPage = () => {
       {
         pagination: {
           page,
-          pageSize: limit || 6,
+          pageSize: limit || 8,
         },
         populate: "*",
-        // sort: "date:desc",
-        // filters: {
-        //   type: {
-        //     $eq: "sandal",
-        //   },
-        // },
       },
       {
         encodeValuesOnly: true,

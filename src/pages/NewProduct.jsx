@@ -7,7 +7,7 @@ import axiosClient from "../api/axiosClient";
 
 import ItemProductApi from "../pages/ItemProductApi";
 import CustomPagination from "../component/CustomPagination";
-const ChildrenAllPage = () => {
+const NewProduct = () => {
   const [articles, setArticles] = useState({
     data: [],
     meta: {},
@@ -34,7 +34,7 @@ const ChildrenAllPage = () => {
         encodeValuesOnly: true,
       }
     );
-    axiosClient.get(`/children?${query}`).then((response) => {
+    axiosClient.get(`/newproducts?${query}`).then((response) => {
       setArticles(response);
     });
   }, [limit, page]);
@@ -78,4 +78,4 @@ const ChildrenAllPage = () => {
   );
 };
 
-export default ChildrenAllPage;
+export default NewProduct;

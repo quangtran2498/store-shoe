@@ -20,6 +20,11 @@ import SandalChildrenPage from "./pages/SandalChildrenPage";
 import MaleAllPage from "./pages/MaleAllPage";
 import FemaleAllPage from "./pages/FemaleAllPage";
 import ChildrenAllPage from "./pages/ChildrenAllPage";
+import NewProduct from "./pages/NewProduct";
+import SaleProductPage from "./pages/SaleProductPage";
+import AboutUs from "./pages/AboutUs";
+import Contact from "./component/Contact";
+import Login from "./component/Login";
 
 function App() {
   return (
@@ -29,9 +34,16 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+
+        {/* page api */}
         <Route path="/male-all-page" element={<MaleAllPage />} />
         <Route path="/female-all-page" element={<FemaleAllPage />} />
         <Route path="/children-all-page" element={<ChildrenAllPage />} />
+        <Route path="/new-product" element={<NewProduct />} />
+        <Route path="/sale-product" element={<SaleProductPage />} />
 
         <Route path="/news" element={<NewsPage />} />
         <Route path="/fashion-male-page" element={<FashionMalePage />} />

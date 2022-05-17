@@ -19,34 +19,17 @@ const Header = () => {
           </div>
           <div className="">
             <ul className="flex text-white">
-              <Link to="/">
+              <Link to="/about-us">
                 <li className="header-item introduce flex items-center px-[20px] py-[10px] relative cursor-pointer">
                   Giới thiệu
                   <BiChevronDown className="inline text-[20px] ml-[3px] font-bold" />
-                  <div className="header-item-link absolute w-[250px] bg-[#333] min-h-[100px] bottom-[-132px] left-[0] hidden z-10">
-                    <Link to="/" className="">
-                      <div className="header-item-link-children py-[10px] pl-[10px] hover:text-[black]">
-                        Về chúng tôi
-                      </div>
-                    </Link>
-                    <Link to="/" className="">
-                      <div className="header-item-link-children py-[10px]  pl-[10px] hover:text-[black]">
-                        Thương hiệu
-                      </div>
-                    </Link>
-                    <Link to="/" className="">
-                      <div className="header-item-link-children py-[10px]  pl-[10px] hover:text-[black]">
-                        Chứng nhận - Bằng khen
-                      </div>
-                    </Link>
-                  </div>
                 </li>
               </Link>
-              <Link to="/">
+              <Link to="/about-us">
                 <li className="header-item cooperate flex items-center px-[20px] py-[10px] relative cursor-pointer">
                   Hợp tác
                   <BiChevronDown className="inline text-[20px] ml-[3px] font-bold" />
-                  <div className="header-item-link cooperate-children z-10 absolute w-[250px] bg-[#333] min-h-[100px] bottom-[-175px] left-[0] hidden">
+                  {/* <div className="header-item-link cooperate-children z-10 absolute w-[250px] bg-[#333] min-h-[100px] bottom-[-175px] left-[0] hidden">
                     <Link to="/" className="">
                       <div className="header-item-link-children py-[10px] pl-[10px] hover:text-[black]">
                         Chính sách đại lý
@@ -67,7 +50,7 @@ const Header = () => {
                         Tôi muốn làm cộng tác viên
                       </div>
                     </Link>
-                  </div>
+                  </div> */}
                 </li>
               </Link>
               <Link to="/">
@@ -82,7 +65,7 @@ const Header = () => {
                   Đăng nhập
                   <BiChevronDown className="inline text-[20px] ml-[3px] font-bold" />
                   <div className="header-item-link login-children z-10 absolute w-[250px] bg-[#333] min-h-[100px] bottom-[-100px] left-[0] hidden">
-                    <Link to="/" className="">
+                    <Link to="/login" className="">
                       <div className="header-item-link-children py-[10px] pl-[10px] hover:text-[black]">
                         Đăng nhập
                       </div>
@@ -96,7 +79,7 @@ const Header = () => {
                 </li>
               </Link>
 
-              <Link to="/">
+              <Link to="/contact">
                 <li className="header-item flex items-center px-[20px] py-[10px] relative cursor-pointer">
                   Liên hệ
                   <BiChevronDown className="inline text-[20px] ml-[3px] font-bold" />
@@ -194,12 +177,12 @@ const Header = () => {
                 </div>
               </li>
             </Link>
-            <Link to="/">
+            <Link to="/sale-product">
               <div className="header-product-item text-[14px] hover:bg-[#ff7158]  px-[20px] h-[40px] text-white leading-[40px]">
                 KHUYẾN MÃI
               </div>
             </Link>
-            <Link to="/">
+            <Link to="/new-product">
               <div className="header-product-item text-[14px] hover:bg-[#ff7158]  px-[20px] h-[40px] text-white leading-[40px]">
                 SẢN PHẨM MỚI
               </div>
