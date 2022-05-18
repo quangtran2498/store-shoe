@@ -53,7 +53,7 @@ const Header = () => {
                   </div> */}
                 </li>
               </Link>
-              <Link to="/">
+              <Link to="/slider-demo">
                 <li className="header-item flex items-center px-[20px] py-[10px] relative cursor-pointer">
                   Hệ thống phân phối
                   <BiChevronDown className="inline text-[20px] ml-[3px] font-bold" />

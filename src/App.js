@@ -25,6 +25,8 @@ import SaleProductPage from "./pages/SaleProductPage";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./component/Contact";
 import Login from "./component/Login";
+import ArticlePage from "./component/Article";
+import SliderDemo from "./component/SliderHomeDemo";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/males/:id" element={<ArticlePage />} />
+        <Route path="/slider-demo" element={<SliderDemo />} />
 
         {/* page api */}
         <Route path="/male-all-page" element={<MaleAllPage />} />

@@ -9,10 +9,10 @@ const ItemProductApi = ({ newData }) => {
 
   const linkLocal = `http://localhost:1337${attributes?.image?.data?.attributes?.url}`;
 
-  const types = attributes?.types;
+  const type = attributes?.typedad;
   return (
     <Link
-      to={`/articles/${types}/${newData?.id}`}
+      to={`/${type}/${newData?.id}`}
       className="news-card flex flex-col w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-[25px] p-7 md:p-3 pb-11  md:mt-[20px]"
     >
       <div className="overflow-hidden w-full mx-auto">
