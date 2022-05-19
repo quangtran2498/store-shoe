@@ -27,6 +27,11 @@ import Contact from "./component/Contact";
 import Login from "./component/Login";
 import ArticlePage from "./component/Article";
 import SliderDemo from "./component/SliderHomeDemo";
+import ArticleFemale from "./component/ArticleFemale";
+import ArticleChildren from "./component/ArticleChildren";
+import ArticleSale from "./component/ArticleSale";
+import ArticleNewProduct from "./component/ArticleNewProduct";
+import ArticleNews from "./component/ArticleNews";
 
 function App() {
   return (
@@ -41,6 +46,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/males/:id" element={<ArticlePage />} />
         <Route path="/slider-demo" element={<SliderDemo />} />
+        <Route path="/females/:id" element={<ArticleFemale />} />
+        <Route path="/children/:id" element={<ArticleChildren />} />
+        <Route path="/all-featured-products/:id" element={<ArticleSale />} />
+        <Route path="/newproducts/:id" element={<ArticleNewProduct />} />
+        <Route path="/articles/:id" element={<ArticleNews />} />
 
         {/* page api */}
         <Route path="/male-all-page" element={<MaleAllPage />} />
@@ -49,7 +59,7 @@ function App() {
         <Route path="/new-product" element={<NewProduct />} />
         <Route path="/sale-product" element={<SaleProductPage />} />
 
-        <Route path="/news" element={<NewsPage />} />
+        <Route path="/articles" element={<NewsPage />} />
         <Route path="/fashion-male-page" element={<FashionMalePage />} />
         <Route path="/football-male-page" element={<FootballMalePage />} />
         <Route

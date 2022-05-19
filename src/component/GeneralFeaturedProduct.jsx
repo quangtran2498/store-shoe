@@ -17,12 +17,6 @@ export default function GeneralFeaturedProduct() {
           pageSize: 5,
         },
         populate: "*",
-        // sort: "date:desc",
-        // filters: {
-        //   types: {
-        //     $eq: "recruit",
-        //   },
-        // },
       },
       {
         encodeValuesOnly: true,
@@ -52,7 +46,7 @@ export default function GeneralFeaturedProduct() {
 
           // console.log(item);
           return (
-            <Link to="/">
+            <Link to={`all-featured-products/${item.id}`}>
               <div key={index} className="">
                 <div className="featured-product-item w-[235px] h-[318px] rounded-[20px] bg-[#E6E5EB] px-[10px] py-[20px]">
                   <div className="featured-product-item-heading font-bold text-center">

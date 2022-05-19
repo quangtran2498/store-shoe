@@ -1,4 +1,3 @@
-// import qs from "qs";
 import React, { useEffect, useState } from "react";
 import qs from "qs";
 
@@ -16,7 +15,7 @@ import "../style/slider.css";
 import ItemProductApi from "../pages/ItemProductApi";
 import "../stylePage/pages.css";
 
-const ArticlePage = () => {
+const ArticleNewProduct = () => {
   const [active, setActive] = useState();
   // const [typeSimilar, setTypeSimilar] = useState();
 
@@ -37,7 +36,7 @@ const ArticlePage = () => {
   });
 
   useEffect(() => {
-    axiosClient.get(`/males/${id}?populate=*`).then((response) => {
+    axiosClient.get(`/newproducts/${id}?populate=*`).then((response) => {
       setDetailArticle(response);
     });
     // .finally(() => setIsLoading(false));
@@ -65,7 +64,7 @@ const ArticlePage = () => {
       }
     );
     axiosClient
-      .get(`/males?${query}`)
+      .get(`/newproducts?${query}`)
       .then((response) => setSimilarProduct(response));
   }, [id]);
   // console.log(similarPrduct);
@@ -200,4 +199,4 @@ const ArticlePage = () => {
   );
 };
 
-export default ArticlePage;
+export default ArticleNewProduct;

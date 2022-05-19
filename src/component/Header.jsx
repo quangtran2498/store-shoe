@@ -53,7 +53,7 @@ const Header = () => {
                   </div> */}
                 </li>
               </Link>
-              <Link to="/slider-demo">
+              <Link to="/">
                 <li className="header-item flex items-center px-[20px] py-[10px] relative cursor-pointer">
                   Hệ thống phân phối
                   <BiChevronDown className="inline text-[20px] ml-[3px] font-bold" />
@@ -187,7 +187,7 @@ const Header = () => {
                 SẢN PHẨM MỚI
               </div>
             </Link>
-            <Link to="/news">
+            <Link to="/articles">
               <div className="header-product-item text-[14px] hover:bg-[#ff7158]  px-[20px] h-[40px] text-white leading-[40px] ">
                 TIN TỨC
               </div>

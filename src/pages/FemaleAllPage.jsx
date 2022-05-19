@@ -23,12 +23,7 @@ const FemaleAllPage = () => {
           pageSize: limit || 8,
         },
         populate: "*",
-        // sort: "date:desc",
-        // filters: {
-        //   type: {
-        //     $eq: "sandal",
-        //   },
-        // },
+        sort: "type:desc",
       },
       {
         encodeValuesOnly: true,
@@ -45,11 +40,9 @@ const FemaleAllPage = () => {
   return (
     <div className="news-page mt-[50px]">
       <div className="w-[1400px] mx-auto">
-        <div className="news-page-heading">
-          Prowin|Sản phẩm|Dành cho nam|Giày Thời trang
-        </div>
+        <div className="news-page-heading">Prowin|Sản phẩm|Dành cho nữ</div>
         <div className="news-page-title w-[250px] h-[50px] mx-auto flex justify-center items-center font-medium text-white mt-[15px] text-[24px] mb-[50px]">
-          GIÀY THỜI TRANG
+          DÀNH CHO NỮ
         </div>
       </div>
       <div className="px-[80px]">

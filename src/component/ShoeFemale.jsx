@@ -49,7 +49,7 @@ export default function ShoeFamale() {
               key={index}
               className="shoe-fb-item w-[280px] h-[340px] bg-[#e6e5eb] p-[15px]"
             >
-              <Link to="/">
+              <Link to={`females/${item.id}`}>
                 <div className="shoe-fb-item-img overflow-hidden ">
                   <img
                     src={linkLocal}

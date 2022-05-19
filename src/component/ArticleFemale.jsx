@@ -1,7 +1,6 @@
-// import qs from "qs";
 import React, { useEffect, useState } from "react";
 import qs from "qs";
-
+import axiosClient from "../api/axiosClient";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import rehypeRaw from "rehype-raw";
@@ -11,12 +10,11 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import axiosClient from "../api/axiosClient";
 import "../style/slider.css";
 import ItemProductApi from "../pages/ItemProductApi";
 import "../stylePage/pages.css";
 
-const ArticlePage = () => {
+const ArticleFemale = () => {
   const [active, setActive] = useState();
   // const [typeSimilar, setTypeSimilar] = useState();
 
@@ -37,7 +35,7 @@ const ArticlePage = () => {
   });
 
   useEffect(() => {
-    axiosClient.get(`/males/${id}?populate=*`).then((response) => {
+    axiosClient.get(`/females/${id}?populate=*`).then((response) => {
       setDetailArticle(response);
     });
     // .finally(() => setIsLoading(false));
@@ -65,7 +63,7 @@ const ArticlePage = () => {
       }
     );
     axiosClient
-      .get(`/males?${query}`)
+      .get(`/females?${query}`)
       .then((response) => setSimilarProduct(response));
   }, [id]);
   // console.log(similarPrduct);
@@ -200,4 +198,4 @@ const ArticlePage = () => {
   );
 };
 
-export default ArticlePage;
+export default ArticleFemale;
