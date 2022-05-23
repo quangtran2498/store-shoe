@@ -1,4 +1,3 @@
-// import qs from "qs";
 import React, { useEffect, useState } from "react";
 import qs from "qs";
 
@@ -15,16 +14,16 @@ import axiosClient from "../api/axiosClient";
 import "../style/slider.css";
 import ItemProductApi from "../pages/ItemProductApi";
 import "../stylePage/pages.css";
+import ArticleItem from "./ArticleItem";
 
 const ArticlePage = () => {
   const [active, setActive] = useState();
-  // const [typeSimilar, setTypeSimilar] = useState();
 
   const [similarPrduct, setSimilarProduct] = useState({
     data: [],
     meta: {},
   });
-  const [size, setSize] = useState(35);
+  // const [size, setSize] = useState(35);
 
   const { id, type } = useParams();
   const [detailArticle, setDetailArticle] = useState({
@@ -55,9 +54,6 @@ const ArticlePage = () => {
           id: {
             $ne: id,
           },
-          // type: {
-          //   $eq: typeRamdom,
-          // },
         },
       },
       {
@@ -69,14 +65,17 @@ const ArticlePage = () => {
       .then((response) => setSimilarProduct(response));
   }, [id]);
   // console.log(similarPrduct);
+  const dataCart = detailArticle.data?.attributes;
+  console.log(dataCart);
+  const image = dataCart.image?.data?.attributes?.url;
 
   const convertMarkdownToHTML = (content) => {
     return <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>;
   };
   // console.log(detailArticle.data.attributes);
   // console.log(imgList);
-  const typeRamdom = detailArticle.data.attributes?.type;
-  console.log(typeRamdom);
+  // const typeRamdom = detailArticle.data.attributes?.type;
+  // console.log(typeRamdom);
 
   return (
     <div className="">
@@ -129,56 +128,14 @@ const ArticlePage = () => {
           </div>
         </div>
         <div className="article-right w-[50%] px-[20px]">
-          <p className="article-title mt-[50px] text-[24px] font-bold pb-[10px]">
-            {detailArticle.data.attributes?.title}
-          </p>
-          <p className="article-price text-[#BC412C] pb-[10px] text-[14px]">
-            {detailArticle.data.attributes?.price}
-          </p>
-          <div className="article-line w-full h-[2px] bg-[#BC412C] mb-[20px]"></div>
-          <div className="article-description leading-[2] text-[18px]">
-            {convertMarkdownToHTML(detailArticle.data.attributes?.description)}
-          </div>
-          <div className="name-size mt-[20px]">Tên size:{size}</div>
-
-          <div className="sizes flex mt-[10px]">
-            {detailArticle.data.attributes?.sizes?.map((sizeitem, index) => {
-              // console.log(sizeitem);
-              const handleNameSize = () => {
-                setSize(sizeitem);
-              };
-
-              console.log(size);
-              return (
-                <div
-                  onClick={handleNameSize}
-                  key={index}
-                  className="size-item w-[32px]  cursor-pointer h-[30px] border-[1px] border-[#ccc] mr-[5px] flex items-center justify-center hover:bg-[#333] hover:text-[white]"
-                >
-                  {sizeitem}
-                </div>
-              );
-            })}
-          </div>
-          <div className="flex mt-[30px]">
-            <input
-              type="number"
-              className="w-[80px] text-center h-[38px] border-[1px] border-[#ccc] mr-[15px] "
-              placeholder="1"
-            />
-            <button
-              type="submit"
-              className="add-cart w-[300px] h-[38px] border-[2px] border-[#333] hover:bg-[#333] hover:text-white"
-            >
-              Thêm vào giỏ
-            </button>
-          </div>
-          <button
-            type="submit"
-            className="add-cart w-[300px] mt-[5px] font-bold bg-[#fca5a5] h-[42px] border-[2px] hover:bg-[white] block text-white hover:text-[#333]"
-          >
-            Mua Ngay
-          </button>
+          <ArticleItem
+            id={id}
+            title={dataCart.title}
+            price={dataCart.price}
+            description={dataCart.description}
+            sizes={dataCart.sizes}
+            image={image}
+          ></ArticleItem>
         </div>
       </div>
       <div className="content px-[20px] pt-[50px] pb-[100px]">

@@ -19,31 +19,7 @@ a.pagination-link.pagination-link-first {
 a.pagination-link.pagination-link-last {
   display: none;
 }
-/* .pagination-link-prev {
-  @apply flex justify-center items-center mx-1 bg-[#b2bec3];
-}
 
-.pagination-link-next {
-  @apply flex justify-center items-center mx-1 bg-[#b2bec3];
-}
-.pagination-link-first {
-  @apply hidden sm:flex justify-center items-center mx-1 text-2xl bg-[grey];
-}
-.pagination-link-last {
-  @apply hidden sm:flex justify-center items-center mx-1 text-2xl bg-[grey]; */
-/* } */
-/* .pagination-link-prev:hover {
-  @apply bg-[#8b8b8b];
-}
-.pagination-link-next:hover {
-  @apply bg-[#8b8b8b];
-}
-.pagination-link-first:hover {
-  @apply bg-[#8b8b8b];
-}
-.pagination-link-last:hover {
-  @apply bg-[#8b8b8b];
-} */
 
 .item-title {
   overflow: hidden;

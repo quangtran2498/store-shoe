@@ -1,13 +1,17 @@
 import "../stylePage/pages.css";
 
 import qs from "qs";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axiosClient from "../api/axiosClient";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 import ItemProductApi from "../pages/ItemProductApi";
 import CustomPagination from "../component/CustomPagination";
 const FootballMalePage = () => {
+  const [sort, setSort] = useState("title");
+  const [sortItem, setSortItem] = useState("Phổ biến");
+
   const [articles, setArticles] = useState({
     data: [],
     meta: {},
@@ -23,7 +27,7 @@ const FootballMalePage = () => {
           pageSize: limit || 6,
         },
         populate: "*",
-        // sort: "date:desc",
+        sort,
         filters: {
           type: {
             $eq: "football",
@@ -37,11 +41,31 @@ const FootballMalePage = () => {
     axiosClient.get(`/males?${query}`).then((response) => {
       setArticles(response);
     });
-  }, [limit, page]);
+  }, [limit, page, sort]);
   console.log(articles);
   const totalPages = articles.meta?.pagination?.pageCount;
   const total = articles.meta?.pagination?.total;
   const pageSize = articles.meta?.pagination?.pageSize;
+  //select
+  const handleFirstNew = () => {
+    setSortItem("Mới nhất");
+    setSort("type:desc");
+  };
+  const handleCommon = () => {
+    setSortItem("Phổ biến");
+    setSort("title:desc");
+  };
+  const handlePriceShortTall = () => {
+    setSortItem("Giá từ thấp đến cao ");
+    setSort("price:asc");
+    // setSort("title");
+  };
+  const handlePriceTallShort = () => {
+    setSortItem("Giá từ cao đến thấp");
+    setSort("price:desc");
+    // setSort("title");
+  };
+
   return (
     <div className="news-page mt-[50px]">
       <div className="w-[1400px] mx-auto">
@@ -53,12 +77,38 @@ const FootballMalePage = () => {
         </div>
       </div>
       <div className="px-[80px]">
-        <select className="w-[280px] h-[38px] border-[1px] border-[#ccc] px-[5px] mb-[50px]">
-          <option value="">Mới nhất</option>
-          <option value="">Phổ biến</option>
-          <option value="">Giá từ cao đến thấp</option>
-          <option value="">Giá từ thấp đến cao</option>
-        </select>
+        <div className="relative language cursor-pointer w-[250px] py-[5px] px-[10px] border-[1px] border-[#ccc] mb-[50px]">
+          {sortItem}
+          <RiArrowDownSLine className="absolute right-[10px] top-[10px]" />
+
+          <div className="language-item left-0 mt-[8px] absolute w-full  bg-[white] rounded-[5px] ] hidden border-[1px] border-[#ccc]">
+            <div
+              onClick={handleCommon}
+              className="common text-[#333] w-full py-[3px] pl-[10px]  hover:text-[red] hover:bg-[#f9fafb] hover:rounded-[5px] cursor-pointer"
+            >
+              Phổ biến
+            </div>
+            <div
+              onClick={handleFirstNew}
+              className="first-new text-[#333] w-full py-[3px] pl-[10px] hover:text-[red] hover:bg-[#f9fafb] hover:rounded-[5px] cursor-pointer"
+            >
+              Mới nhất
+            </div>
+            <div
+              onClick={handlePriceShortTall}
+              className="first-new text-[#333] w-full py-[3px] pl-[10px] hover:text-[red] hover:bg-[#f9fafb] hover:rounded-[5px] cursor-pointer"
+            >
+              Giá từ thấp đến cao
+            </div>
+            <div
+              onClick={handlePriceTallShort}
+              className="first-new text-[#333] w-full py-[3px] pl-[10px] hover:text-[red] hover:bg-[#f9fafb] hover:rounded-[5px] cursor-pointer"
+            >
+              Giá từ cao đến thấp
+            </div>
+            <div className=""></div>
+          </div>
+        </div>
         <div className="card-news pb-[120px] mt-[-25px]">
           <div className=" flex flex-wrap">
             {articles.data.map((newItem, index) => (

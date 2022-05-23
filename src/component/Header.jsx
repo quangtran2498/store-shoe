@@ -4,6 +4,7 @@ import { BiChevronDown } from "react-icons/bi";
 import { FaShoppingBag } from "react-icons/fa";
 import { HiOutlineSearch } from "react-icons/hi";
 import { FaPhone } from "react-icons/fa";
+import CartButton from "../component/CartButton";
 
 import { Link } from "react-router-dom";
 import "../style/header.css";
@@ -87,17 +88,7 @@ const Header = () => {
               </Link>
             </ul>
           </div>
-          <div className="cart">
-            <div className="cart-item text-white flex items-center">
-              Giỏ hàng
-              <Link to="/" className="relative">
-                <FaShoppingBag className="inline ml-[5px] text-[#ff7158] text-[24px] hover:text-white" />
-                <div className="quality absolute top-[-5px] right-[-15px] w-[20px] h-[20px] rounded-full bg-white text-black text-center leading-[20px]">
-                  0
-                </div>
-              </Link>
-            </div>
-          </div>
+          <CartButton />
         </div>
       </div>
       <div className="header-bottom w-full h-[40px] bg-[#BC412C] ">

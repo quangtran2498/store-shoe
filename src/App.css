@@ -1,3 +1,23 @@
 .news-page {
   margin-top: 150px;
 }
+.language-item {
+  transform: scale(0);
+  transition: all 0.2s linear;
+  z-index: 999;
+}
+
+.language:hover .language-item {
+  transform: scale(1);
+  display: block;
+}
+.language-item::after {
+  content: "";
+  display: block;
+  width: 250px;
+  height: 35px;
+  position: absolute;
+  top: -20px;
+  /* background-color: red; */
+  z-index: 999;
+}

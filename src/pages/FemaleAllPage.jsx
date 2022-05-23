@@ -1,17 +1,19 @@
 import "../stylePage/pages.css";
 
 import qs from "qs";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axiosClient from "../api/axiosClient";
+import { RiArrowDownSLine } from "react-icons/ri";
 
-import ItemProductApi from "./ItemProductApi";
+import ItemProductApi from "../pages/ItemProductApi";
 import CustomPagination from "../component/CustomPagination";
 const FemaleAllPage = () => {
   const [articles, setArticles] = useState({
     data: [],
     meta: {},
   });
+  const [sort, setSort] = useState("title");
 
   const location = useLocation();
   const { page, limit } = qs.parse(location.search.substr(1));
@@ -23,7 +25,7 @@ const FemaleAllPage = () => {
           pageSize: limit || 8,
         },
         populate: "*",
-        sort: "type:desc",
+        sort,
       },
       {
         encodeValuesOnly: true,
@@ -32,26 +34,80 @@ const FemaleAllPage = () => {
     axiosClient.get(`/females?${query}`).then((response) => {
       setArticles(response);
     });
-  }, [limit, page]);
-  console.log(articles);
+  }, [limit, page, sort]);
+  // console.log(articles);
   const totalPages = articles.meta?.pagination?.pageCount;
   const total = articles.meta?.pagination?.total;
   const pageSize = articles.meta?.pagination?.pageSize;
+  const [sortItem, setSortItem] = useState("Phổ biến");
+
+  //
+
+  const handleFirstNew = () => {
+    setSortItem("Mới nhất");
+    setSort("type:desc");
+  };
+  const handleCommon = () => {
+    setSortItem("Phổ biến");
+    setSort("title:desc");
+  };
+  const handlePriceShortTall = () => {
+    setSortItem("Giá từ thấp đến cao ");
+    setSort("price:asc");
+    // setSort("title");
+  };
+  const handlePriceTallShort = () => {
+    setSortItem("Giá từ cao đến thấp");
+    setSort("price:desc");
+    // setSort("title");
+  };
+
+  console.log(sort);
   return (
     <div className="news-page mt-[50px]">
       <div className="w-[1400px] mx-auto">
-        <div className="news-page-heading">Prowin|Sản phẩm|Dành cho nữ</div>
-        <div className="news-page-title w-[250px] h-[50px] mx-auto flex justify-center items-center font-medium text-white mt-[15px] text-[24px] mb-[50px]">
-          DÀNH CHO NỮ
+        <div className="news-page-heading">
+          Prowin|Sản phẩm|Dành cho nam|Giày Thời trang
+        </div>
+        <div className="news-page-title w-[250px] h-[50px] uppercase mx-auto flex justify-center items-center font-medium text-white mt-[15px] text-[24px] mb-[50px]">
+          Dành cho nam
         </div>
       </div>
       <div className="px-[80px]">
-        <select className="w-[280px] h-[38px] border-[1px] border-[#ccc] px-[5px] mb-[50px]">
-          <option value="">Mới nhất</option>
-          <option value="">Phổ biến</option>
-          <option value="">Giá từ cao đến thấp</option>
-          <option value="">Giá từ thấp đến cao</option>
-        </select>
+        <div className=" min-w-[150px] relative mb-[100px] lg:block">
+          <div className="relative language cursor-pointer w-[250px] py-[5px] px-[10px] border-[1px] border-[#ccc]">
+            {sortItem}
+            <RiArrowDownSLine className="absolute right-[10px] top-[10px]" />
+
+            <div className="language-item left-0 mt-[8px] absolute w-full  bg-[white] rounded-[5px] ] hidden border-[1px] border-[#ccc]">
+              <div
+                onClick={handleCommon}
+                className="common text-[#333] w-full py-[3px] pl-[10px]  hover:text-[red] hover:bg-[#f9fafb] hover:rounded-[5px] cursor-pointer"
+              >
+                Phổ biến
+              </div>
+              <div
+                onClick={handleFirstNew}
+                className="first-new text-[#333] w-full py-[3px] pl-[10px] hover:text-[red] hover:bg-[#f9fafb] hover:rounded-[5px] cursor-pointer"
+              >
+                Mới nhất
+              </div>
+              <div
+                onClick={handlePriceShortTall}
+                className="first-new text-[#333] w-full py-[3px] pl-[10px] hover:text-[red] hover:bg-[#f9fafb] hover:rounded-[5px] cursor-pointer"
+              >
+                Giá từ thấp đến cao
+              </div>
+              <div
+                onClick={handlePriceTallShort}
+                className="first-new text-[#333] w-full py-[3px] pl-[10px] hover:text-[red] hover:bg-[#f9fafb] hover:rounded-[5px] cursor-pointer"
+              >
+                Giá từ cao đến thấp
+              </div>
+              <div className=""></div>
+            </div>
+          </div>
+        </div>
         <div className="card-news pb-[120px] mt-[-25px]">
           <div className=" flex flex-wrap">
             {articles.data.map((newItem, index) => (

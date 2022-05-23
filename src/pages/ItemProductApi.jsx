@@ -26,7 +26,7 @@ const ItemProductApi = ({ newData }) => {
         <p className="item-title-product vgs-text-ellipsis-3 news-title text-[15px] font-bold  text-center text-[#208cea] ">
           {attributes?.title}
         </p>
-        <p className="price py-[10px]">{attributes?.price}</p>
+        <p className="price py-[10px]">{attributes?.price}.000đ</p>
         <div className="w-full h-[38px] border-[2px] border-black text-center leading-[35px] hover:bg-[#333] hover:text-white">
           XEM
         </div>

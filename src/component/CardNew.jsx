@@ -6,7 +6,7 @@ import LoadingSkeleton from "./LoadingSkeleton";
 
 const CardNew = ({ newData }) => {
   const { attributes } = newData;
-  console.log(attributes);
+  // console.log(attributes);
 
   const linkLocal = `http://localhost:1337${attributes?.image?.data?.attributes?.url}`;
 

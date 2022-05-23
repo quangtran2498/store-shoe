@@ -46,7 +46,7 @@ export default function GeneralFeaturedProduct() {
 
           // console.log(item);
           return (
-            <Link to={`all-featured-products/${item.id}`}>
+            <Link data-aos="fade-up" to={`all-featured-products/${item.id}`}>
               <div key={index} className="">
                 <div className="featured-product-item w-[235px] h-[318px] rounded-[20px] bg-[#E6E5EB] px-[10px] py-[20px]">
                   <div className="featured-product-item-heading font-bold text-center">
@@ -60,7 +60,7 @@ export default function GeneralFeaturedProduct() {
                     />
                   </div>
                   <div className="flex justify-between px-[20px] items-center">
-                    <div className="price"> {item.attributes?.price}</div>
+                    <div className="price"> {item.attributes?.price}.000đ</div>
                     <FaShoppingCart className="text-[20px]" />
                   </div>
                 </div>

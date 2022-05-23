@@ -59,7 +59,7 @@ export default function ShoeChildren() {
                 </div>
                 <div className="flex justify-between items-center mt-[5px]">
                   <div className="price text-[13px]">
-                    {item.attributes?.price}
+                    {item.attributes?.price}.000đ
                   </div>
                   <FaShoppingCart className="cart-shoe-fball text-[18px]]" />
                 </div>
