@@ -63,6 +63,13 @@ const ArticleItem = (props) => {
             console.log(size);
             return (
               <div
+                style={
+                  size === sizeitem
+                    ? {
+                        border: "3px solid #333",
+                      }
+                    : {}
+                }
                 onClick={handleNameSize}
                 key={index}
                 className="size-item w-[32px]  cursor-pointer h-[30px] border-[1px] border-[#ccc] mr-[5px] flex items-center justify-center hover:bg-[#333] hover:text-[white]"
